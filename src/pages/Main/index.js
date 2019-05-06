@@ -1,12 +1,12 @@
-import React from "react";
-import Icon from "react-native-vector-icons/MaterialIcons";
+import React from 'react';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import { Animated } from "react-native";
-import { PanGestureHandler, State } from "react-native-gesture-handler";
+import { Animated } from 'react-native';
+import { PanGestureHandler, State } from 'react-native-gesture-handler';
 
-import Header from "../../components/Header";
-import Tabs from "../../components/Tabs";
-import Menu from "../../components/Menu";
+import Header from '../../components/Header';
+import Tabs from '../../components/Tabs';
+import Menu from '../../components/Menu';
 import {
   Container,
   Content,
@@ -16,8 +16,8 @@ import {
   Title,
   Description,
   CardFooter,
-  Annotation
-} from "./styles";
+  Annotation,
+} from './styles';
 
 export default function Main() {
   let offset = 0;
@@ -26,11 +26,11 @@ export default function Main() {
     [
       {
         nativeEvent: {
-          translationY: translateY
-        }
-      }
+          translationY: translateY,
+        },
+      },
     ],
-    { useNativeDriver: true }
+    { useNativeDriver: true },
   );
   function onHandlerStateChanged(event) {
     if (event.nativeEvent.oldState === State.ACTIVE) {
@@ -48,7 +48,7 @@ export default function Main() {
       Animated.timing(translateY, {
         toValue: opened ? 380 : 0,
         duration: 200,
-        useNativeDriver: true
+        useNativeDriver: true,
       }).start(() => {
         offset = opened ? 380 : 0;
         translateY.setOffset(offset);
@@ -73,10 +73,10 @@ export default function Main() {
                   translateY: translateY.interpolate({
                     inputRange: [-350, 0, 380],
                     outputRange: [-50, 0, 380],
-                    extrapolate: "clamp"
-                  })
-                }
-              ]
+                    extrapolate: 'clamp',
+                  }),
+                },
+              ],
             }}
           >
             <CardHeader>
@@ -86,12 +86,12 @@ export default function Main() {
 
             <CardContent>
               <Title>Saldo disponível</Title>
-              <Description>R$ 197,98</Description>
+              <Description>R$ 1.979.989,45</Description>
             </CardContent>
 
             <CardFooter>
               <Annotation>
-                Tranfesrência de R$ 20,00 recebida de Willamis da Silva às
+                Transferência de R$ 20,00 recebida de Willamis da Silva às
                 06:00h
               </Annotation>
             </CardFooter>
